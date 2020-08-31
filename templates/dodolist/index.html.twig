@@ -1,0 +1,30 @@
+
+{% extends 'base.html.twig' %}
+
+
+        {% block body %}
+        {% if articles %}
+            <table class="table table-striped" id="table">
+              <thead>
+                <tr>
+                    <th>Aticle title</th><th>Actions</th><th>
+                </tr>
+              </thead>
+                <tbody>
+                   {% for article in articles %}
+                      <tr> <td>{{ article.title }}</td>
+                       <td><a href="/article/{{article.id}}" class= "btn btn-dark">Show</a></td>
+                       <td><a href="/article/edit/{{article.id}}" class= "btn btn-success"> edit</a></td>
+                         <td><a href="/article/delete/{{article.id}}" class= "btn btn-danger delete-article" data-id= "{{ article.id }}"> Delete</a></td>
+                          
+                      </tr>
+                  {% endfor %}
+                </tbody>
+        </table>
+           {% else %}
+           <p> No Articles to display <p>
+           {% endif %}
+          {% endblock %}
+
+
+        {% block javascripts %} <script src="/js/main.js"></script> {% endblock %}

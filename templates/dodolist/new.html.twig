@@ -1,0 +1,24 @@
+{%  extends 'base.html.twig'%}
+{% block title %} New Article{% endblock %}
+{% block stylesheets %} <style type="text/css">
+form{
+ margin:0 auto;
+ width:600px;
+}
+p{
+    text-align:center;
+}
+.newform{
+  text-transform:uppercase;  
+}
+
+</style{% endblock %}
+    
+        {% block body %}
+          <p class="newform">create a new article </p>
+        {{form_start(form)}}
+        {{form_widget(form)}}
+        {{form_end(form)}}
+        
+        {% endblock %}
+        
