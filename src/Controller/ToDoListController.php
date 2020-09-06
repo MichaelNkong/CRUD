@@ -81,7 +81,7 @@ class ToDoListController extends AbstractController
     $query = $em->createQuery(
     'SELECT p.title FROM App:Tasks p
       WHERE p.title LIKE :data')
-      ->setParameter('data', $data);
+      ->setParameter('data', '%'.$data.'%');
       $res = $query->getResult();
       
       return $this->render('dodolist/resultsearch.html.twig', array('articles'=>$res));
